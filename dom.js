@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-  axios.get("https://localhost:5500/user/get-users")
+  axios.get("http://localhost:3000/user/get-users")
   .then((Response) => {
    for(var i = 0; i < Response.data.length; i++){
      showUserOnScreen(Response.data[i]);
@@ -26,7 +26,7 @@ function showUserOnScreen(obj){
   deleteButton.type = "button";
   deleteButton.value = 'Delete';
   deleteButton.onclick = () => {
-      axios.delete(`https://localhost:5500/user/delete-user/${obj._id}`)
+      axios.delete(`http://localhost:3000/user/delete-user/${obj._id}`)
        .then((response) => {
           parentElem.removeChild(childElem);
        })
@@ -42,7 +42,7 @@ function showUserOnScreen(obj){
   editButton.value = 'Edit';
   editButton.onclick = () => {
       // localStorage.removeItem(obj.emailId);
-      axios.delete(`https://localhost:5500/user/delete-user/${obj._id}`)
+      axios.delete(`http://localhost:3000/user/delete-user/${obj._id}`)
        .then((response) => {
           parentElem.removeChild(childElem);
        })
@@ -79,8 +79,8 @@ function registerUser(event){
         date,
         time
     }
-    
-    axios.post("https://localhost:5500/user/add-user", obj)
+    console.log(obj);
+    axios.post("http://localhost:3000/user/add-user", obj)
       .then((Response) => {
         showUserOnScreen(Response.data);
         console.log(Response);
