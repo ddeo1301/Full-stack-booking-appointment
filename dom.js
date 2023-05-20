@@ -52,7 +52,7 @@ function showUserOnScreen(obj){
 
       document.getElementById('name').value = obj.name;
       document.getElementById('email').value = obj.emailId;
-      document.getElementById('tel').value = obj.phoneNo;
+      document.getElementById('phone').value = obj.phoneNo;
       document.getElementById('date').value = obj.date;
       document.getElementById('time').value = obj.time;
   }
@@ -70,7 +70,8 @@ function registerUser(event){
     const emailId = event.target.email.value;
     const phoneNo = event.target.phone.value;
     const date = event.target.date.value;
-    const time = event.target.time.value
+    const time = event.target.time.value;
+    console.log(name);
     
     const obj = {
         name,

@@ -1,26 +1,30 @@
 const express = require('express');
 const router = express.Router();
 
-const User = require('../models/User')
+//const User = require('../models/User')
+const User = require('../models/user');
 
 const addUser =  async(req, res, next) => {
     try{
-        if(!req.body.phone){
+        if(!req.body.phoneNo){
             throw new Error('Phone Number is mandatory');
         }
         
         const name = req.body.name;
-        const email = req.body.email;
-        const phonenumber = req.body.phone;
+        const email = req.body.emailId;
+        const phonenumber = req.body.phoneNo;
         const date = req.body.date;
+       // const time = req.body.time;
         
        const data = await User.create({
            name : name,
            email : email,
-           phonenumber: phonenumber,
-           date: date
+           phoneNo: phonenumber,
+           date: date,
+          // time : time
 
        })
+       console.log(data);
        res.status(201).json({newUserDetail : data});
     }catch(err){
         console.log(err);

@@ -14,11 +14,12 @@ const User = sequelize.define('user', {
     type: Sequelize.STRING,
     unique: true
   }, 
-  phonenumber:{
+  phoneNo:{
     type: Sequelize.STRING,
     unique: true
   },
-  date: Sequelize.DATE
+  date: Sequelize.DATE,
+  time : Sequelize.TIME
 });
 
 module.exports = User;
